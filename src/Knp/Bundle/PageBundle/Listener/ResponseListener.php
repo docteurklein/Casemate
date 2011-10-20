@@ -75,6 +75,9 @@ class ResponseListener
             $url = $this->assetHelper->getUrl('bundles/knppage/js/menu.js');
             $html .= sprintf('<script type="text/javascript" src="%s"></script>', $url)."\n";
 
+            $url = $this->assetHelper->getUrl('bundles/knppage/js/pageEditor.js');
+            $html .= sprintf('<script type="text/javascript" src="%s"></script>', $url)."\n";
+
             $script = <<<HTML
 <script type="text/javascript">
     Ext.onReady(function() {
@@ -84,7 +87,7 @@ class ResponseListener
     });
 </script>
 HTML;
-            $html .= $script; //sprintf($script, $this->router->generate('knplabs_translator_put'))."\n";
+            $html .= $script;
 
             $content = $substrFunction($content, 0, $pos).$html.$substrFunction($content, $pos);
             $response->setContent($content);
