@@ -1,0 +1,19 @@
+
+<ul id="knp-cmf-add-content-menu">
+    <li>
+        <a href="#">{{ 'New page'|trans({}, 'KnpPageBundle') }}</a>
+    </li>
+    <li>
+        <a href="#">{{ 'Edit page'|trans({}, 'KnpPageBundle') }}</a>
+    </li>
+    <li>
+        <a href="#">{{ 'Add content'|trans({}, 'KnpPageBundle') }}</a>
+        <ul>
+        {% for blockTypeId in blockProvider.allTypeIds %}
+            <li>
+                <a href="#">{{ blockProvider.getType(blockTypeId).getName() }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </li>
+</ul>

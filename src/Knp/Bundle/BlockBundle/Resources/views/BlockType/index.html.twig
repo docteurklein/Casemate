@@ -1,0 +1,12 @@
+
+<h2>{{ 'BlockTypes list'|trans([], 'knp_cmf_block') }}</h2>
+{# these two syntaxes are possible #}
+{# {% trans from 'knp_cmf_block' %}Blocks list{% endtrans %} #}
+
+<ul>
+{% for blockType in blockTypes %}
+    <li>
+        <a href="{{ path('knp_cmf_block_edit', { 'id': blockType.name } ) }}">{{ blockType.name }}</a>
+    </li>
+{% endfor %}
+</ul>

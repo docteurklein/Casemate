@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="knp.cmf.form.static_block" factory-method="create" factory-service="form.factory" class="%form.factory.class%">
+            <argument type="service" id="knp.cmf.form.type.static_block" />
+            <argument />
+            <argument type="collection">
+                <argument key="data_class">Knp\Bundle\StaticBlockBundle\Document\StaticBlock</argument>
+                <argument key="validation_groups">knp.cmf.validator.block</argument>
+            </argument>
+            <tag name="knp.cmf.block_type.form" />
+        </service>
+
+        <service id="knp.cmf.form.type.static_block" class="Knp\Bundle\StaticBlockBundle\Form\StaticBlockFormType">
+            <argument type="service" id="doctrine.odm.mongodb.document_manager" />
+            <tag name="form.type" />
+        </service>
+    </services>
+</container>

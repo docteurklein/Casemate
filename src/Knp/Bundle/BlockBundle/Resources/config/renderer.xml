@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="knp.cmf.block.renderer" class="Knp\Bundle\BlockBundle\Block\Renderer">
+            <argument type="service" id="http_kernel" />
+            <argument type="service" id="knp.cmf.block.provider" />
+        </service>
+
+        <service id="knp.cmf.templating.twig.environment.string" class="Twig_Environment">
+            <argument type="service" id="knp.cmf.templating.twig.loader.string" />
+            <argument type="collection">
+                <argument key="cache">false</argument>
+                <argument key="debug">false</argument>
+                <argument key="autoescape">false</argument>
+            </argument>
+        </service>
+
+        <service id="knp.cmf.templating.twig.loader.string" class="Twig_Loader_String" />
+    </services>
+</container>

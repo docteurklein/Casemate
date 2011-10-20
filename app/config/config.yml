@@ -1,0 +1,58 @@
+imports:
+    - { resource: security.yml }
+
+framework:
+    charset:       UTF-8
+    csrf_protection:
+        enabled: true
+    secret:        098f6bcd4621d373cade4e832627b4f6
+    router:        { resource: "%kernel.root_dir%/config/routing.yml" }
+    validation:    { enabled: true, enable_annotations: true, cache: apc }
+    templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
+    session:
+ #       default_locale: %locale%
+        lifetime:       3600
+        auto_start:     true
+    form: ~
+    esi: true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    filters:
+        cssrewrite: ~
+        closure:    ~
+
+# Doctrine MongoDB Configuration
+doctrine_mongodb:
+    default_database: knp_cmf
+    auto_generate_proxy_classes: %kernel.debug%
+    auto_generate_hydrator_classes: %kernel.debug%
+    connections:
+        default:
+            server:  mongodb://localhost:27017
+            options:
+                connect: true
+    document_managers:
+        default:
+            metadata_cache_driver: apc
+            mappings:
+                KnpBlockBundleBaseBlock: 
+                    is_bundle: false
+                    type: annotation
+                    dir: %kernel.root_dir%/../src/Knp/Bundle/BlockBundle/Block/
+                    prefix: "Knp\\Bundle\\BlockBundle\\Block\\"
+            auto_mapping: true
+
+# Doctrine Extension
+stof_doctrine_extensions:
+    mongodb:
+        default:
+            sluggable: true
+

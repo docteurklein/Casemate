@@ -1,0 +1,18 @@
+
+_internal:
+    resource: @FrameworkBundle/Resources/config/routing/internal.xml
+    prefix:   /_internal
+
+knp_block_type:
+    resource: @KnpBlockBundle/Resources/config/routing/block_type.yml
+    prefix:   /blocks/types
+
+knp_block:
+    resource: @KnpBlockBundle/Resources/config/routing/block.yml
+    prefix:   /blocks
+
+knp_page:
+    resource: @KnpPageBundle/Controller/
+    type:     annotation
+    prefix:   /page
+

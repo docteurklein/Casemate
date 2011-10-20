@@ -1,0 +1,26 @@
+
+knp_cmf_block_index:
+  pattern:      /list
+  defaults:     { _controller: knp.cmf.controller.block:indexAction }
+  requirements: { _method: GET }
+
+knp_cmf_block_edit:
+  pattern:      /{id}/edit
+  defaults:     { _controller: knp.cmf.controller.block:editAction }
+  requirements: { _method: GET }
+
+knp_cmf_block_show:
+  pattern:      /{id}
+  defaults:     { _controller: knp.cmf.controller.block:showAction }
+  requirements: { _method: GET }
+
+knp_cmf_block_update:
+  pattern:      /{id}/edit
+  defaults:     { _controller: knp.cmf.controller.block:updateAction }
+  requirements: { _method: POST }
+
+knp_cmf_block_delete:
+  pattern:      /{id}
+  defaults:     { _controller: knp.cmf.controller.block:deleteAction }
+  requirements: { _method: DELETE }
+  

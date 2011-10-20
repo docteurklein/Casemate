@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="knp.cmf.controller.block_type" class="Knp\Bundle\BlockBundle\Controller\BlockTypeController">
+            <argument type="service" id="knp.cmf.block.provider" />
+            <argument type="service" id="templating" />
+        </service>
+
+        <service id="knp.cmf.controller.block" class="Knp\Bundle\BlockBundle\Controller\BlockController" parent="knp.cmf.controller.block.prototype" scope="request" />
+
+        <service id="knp.cmf.controller.block.prototype" abstract="true">
+            <argument type="service" id="request" />
+            <argument type="service" id="knp.cmf.block.provider" />
+            <argument type="service" id="templating" />
+            <argument type="service" id="router" />
+            <argument type="service" id="knp.cmf.block.renderer" />
+        </service>
+    </services>
+</container>

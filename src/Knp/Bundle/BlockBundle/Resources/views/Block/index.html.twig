@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<h2>{{ 'Blocks list'|trans([], 'knp_cmf_block') }}</h2>
+
+<ul>
+{% for block in blocks %}
+    <li>
+        <a href="{{ path('knp_cmf_block_show', { 'id': block.id } ) }}">{{ block.name }}</a>
+        <a href="{{ path('knp_cmf_block_edit', { 'id': block.id } ) }}">{{ 'Edit'|trans([], 'et1_cmf_block') }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock body %}

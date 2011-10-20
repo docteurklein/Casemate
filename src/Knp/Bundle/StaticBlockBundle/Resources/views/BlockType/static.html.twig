@@ -1,0 +1,9 @@
+
+<h2>{{ 'Details of Block "%block%"'|trans({'%block%': block.name}, 'knp_cmf_block') }}</h2>
+
+<fieldset>
+    <legend>Rendered content</legend>
+
+    {{ block.content|raw }}
+
+</fieldset>

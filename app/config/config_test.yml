@@ -1,0 +1,28 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+       storage_id: session.storage.filesystem
+
+doctrine_mongodb:
+    default_database: knp_cmf_test
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+behat_mink:
+    base_url: http://helios.dev/app_dev.php/
+    #sahi:       ~
+
+monolog:
+    handlers:
+        test:
+            type:  test
+            level: debug
+        main:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: debug

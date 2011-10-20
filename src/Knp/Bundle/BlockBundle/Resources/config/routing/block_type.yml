@@ -1,0 +1,6 @@
+
+knp_cmf_block_type_index:
+  pattern:      /list
+  defaults:     { _controller: knp.cmf.controller.block_type:indexAction }
+  requirements: { _method: GET }
+  

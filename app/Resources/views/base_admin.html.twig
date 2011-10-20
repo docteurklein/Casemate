@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        {% endblock %}
+        <link type="text/css" href="{{ asset('css/admin_nav.css') }}" media="all"  rel="stylesheet" />
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% block extrajs %}{% endblock %}
+    </head>
+    <body>
+        {{ menu('main') }}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

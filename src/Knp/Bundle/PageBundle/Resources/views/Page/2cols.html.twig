@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {% for zone in page.getZones() %}
+        <div class="zone">
+        {% for block in zone.getBlocks() %}
+            <div class="block">
+                {{ renderer.render(block) }}
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+	
+{% endblock %}
