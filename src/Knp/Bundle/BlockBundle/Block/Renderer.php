@@ -37,8 +37,8 @@ class Renderer
 
     public function getFrontendControllerId(BlockInterface $block)
     {
-        if(null !== $templateName = $block->getFrontendControllerId()) {
-            return $templateName;
+        if(null !== $id = $block->getFrontendControllerId()) {
+            return $id;
         }
 
         $blockType = $this->provider->getType($block->getBlockTypeId());

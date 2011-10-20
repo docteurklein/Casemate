@@ -109,7 +109,7 @@ class BlockController
             $this->provider->getDm()->persist($blockForm->getData());
             $this->provider->getDm()->flush();
 
-	        return new RedirectResponse($this->router->generate('knp_cmf_block_edit', array('id' => $block->getId())));
+            return new RedirectResponse($this->router->generate('knp_cmf_block_edit', array('id' => $block->getId())));
         }
 
         return $this->engine->renderResponse($blockType->getEditionTemplateName(), array(
