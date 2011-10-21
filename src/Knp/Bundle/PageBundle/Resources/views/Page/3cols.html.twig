@@ -1,56 +1,37 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-
     {% set zone = pageRepository.getZone(page, 'left', true) %}
     {% if zone != null %}
-
         <div class="zone zone-left">
-        
-        {% for block in zone.getBlocks() %}
-            
-            <div class="block block-{{ loop.index }}">
-                {{ renderer.render(block)|raw }}
-            </div>
-
-        {% endfor %}
-
+            {{ zone.name }}
+            {% for block in zone.getBlocks() %}
+                <div class="block block-{{ loop.index }}">
+                    {{ renderer.render(block)|raw }}
+                </div>
+            {% endfor %}
         </div>
-
     {% endif %}
-
     {% set zone = pageRepository.getZone(page, 'center') %}
     {% if zone != null %}
-
         <div class="zone zone-center">
-        
-        {% for block in zone.getBlocks() %}
-            
+            {{ zone.name }}
+            {% for block in zone.getBlocks() %}
             <div class="block block-{{ loop.index }}">
                 {{ renderer.render(block)|raw }}
             </div>
-
         {% endfor %}
-
         </div>
-
     {% endif %}
-
     {% set zone = pageRepository.getZone(page, 'right', true) %}
     {% if zone != null %}
-
         <div class="zone zone-right">
-        
-        {% for block in zone.getBlocks() %}
-            
-            <div class="block block-{{ loop.index }}">
-                {{ renderer.render(block)|raw }}
-            </div>
-
-        {% endfor %}
-
+            {{ zone.name }}
+            {% for block in zone.getBlocks() %}
+                <div class="block block-{{ loop.index }}">
+                    {{ renderer.render(block)|raw }}
+                </div>
+            {% endfor %}
         </div>
-
     {% endif %}
-	
 {% endblock %}

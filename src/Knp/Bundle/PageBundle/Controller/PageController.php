@@ -11,11 +11,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class PageController extends Controller
 {
     /**
-     * @Route("/{slug}.{_format}", name="knp_front_page_index")
+     * @Route("/", name="knp_front_page_index")
      */
-    public function indexAction($slug)
+    public function indexAction()
     {
-        $page = $this->get('knp.cmf.page.repository')->findOneBySlug($slug);
+        $pages = $this->get('knp.cmf.page.repository')->findAll();
+
+        return $this->get('templating')->renderResponse('KnpPageBundle:Page:index.html.twig', array(
+            'pages' => $pages
+        ));
+    }
+
+    /**
+     * @Route("/{slug}", name="knp_front_page_view")
+     */
+    public function viewAction($slug)
+    {
+        $page = $this->get('knp.cmf.page.repository')->find($slug);
         if(null === $page)
         {
             throw new NotFoundHttpException;

@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {% for page in pages %}
+        <div class="page">
+            <a href="{{ path('knp_front_page_view', {'slug': page.id}) }}">{{ page.name }}</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

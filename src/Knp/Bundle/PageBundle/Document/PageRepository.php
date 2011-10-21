@@ -19,17 +19,17 @@ class PageRepository extends DocumentRepository
 
     public function getZone(Page $page, $name, $shared = false)
     {
-        /*if($shared) {
-            $zone = $this->getDocumentManager()->getRepository('Knp\Bundle\PageBundle\Document\Zone')->findOneBy(array(
+        if($shared) {
+            $zone = $this->getDocumentManager()->getRepository('Knp\Bundle\PageBundle\Document\SharedZone')->findOneBy(array(
                 'name' => $name,
-                'shared' => true
             ));
 
             return $zone;
-        }*/
+        }
 
         foreach($page->getZones() as $zone) {
             if($zone->getName() === $name) {
+
                 return $zone;
             }
         }

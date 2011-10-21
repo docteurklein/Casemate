@@ -9,6 +9,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 
 use Knp\Bundle\PageBundle\Document\Page;
 use Knp\Bundle\PageBundle\Document\Zone;
+use Knp\Bundle\PageBundle\Document\SharedZone;
 
 class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface
 {
@@ -30,7 +31,7 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, F
             $layout = '3cols';
             $page->setLayoutName(sprintf('KnpPageBundle:Page:%s.html.twig', $layout));
 
-            $page->setZones($this->buildZones());
+            $page->setZones($this->buildZones($dm));
 
             $dm->persist($page);
         }
@@ -38,7 +39,7 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, F
         $dm->flush();
     }
 
-    private function buildZones()
+    private function buildZones($dm)
     {
         $zones = array();
         $config = array(
@@ -47,11 +48,14 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, F
             3 => array('right', true),
         );
         for($i = 1; $i <= 3; $i++) {
-            $zone = new Zone;
+            $zone = $config[$i][1] ? new SharedZone : new Zone;
             $zone->setName($config[$i][0]);
-            $zone->setShared($config[$i][1]);
 
             $zone->setBlocks($this->getBlocks());
+
+            if($zone->isShared()) {
+                $dm->persist($zone);
+            }
 
             $zones[] = $zone;
         }
