@@ -5,6 +5,8 @@ namespace Knp\Bundle\BlockBundle\Controller;
 use Knp\Bundle\BlockBundle\Controller\BlockControllerInterface;
 use Symfony\Component\HttpFoundation\Session;
 use Knp\Bundle\BlockBundle\BlockType\AbstractBlockType;
+use Symfony\Component\HttpFoundation\Request;
+use Knp\Bundle\BlockBundle\Block\BlockInterface;
 
 /**
  * This is the interface for BaseBlockController
@@ -12,6 +14,13 @@ use Knp\Bundle\BlockBundle\BlockType\AbstractBlockType;
  */
 interface BaseBlockControllerInterface
 {
+    /**
+     * esiRender
+     *
+     * @return Response
+     */
+    function esiRender(Request $request);
+
     /**
      * Get the current Session object
      *

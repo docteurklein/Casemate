@@ -6,6 +6,7 @@ use Knp\Bundle\BlockBundle\Block\BlockInterface;
 use Knp\Bundle\BlockBundle\Block\Provider;
 use Symfony\Component\Templating\EngineInterface;
 use Symfony\Component\HttpKernel\HttpKernel;
+use Knp\Bundle\PageBundle\Listener\ResponseListener;
 
 /**
  *
@@ -32,6 +33,10 @@ class Renderer
             'standalone' => true,
         ), $params);
 
+        if(true === $params['standalone']) {
+            $params['query'][ResponseListener::IS_SUB_REQUEST] = 'yes';
+            return $this->kernel->render($this->getFrontendControllerId($block).':esiRender', $params);
+        }
         return $this->kernel->render($this->getFrontendControllerId($block).':render', $params);
     }
 

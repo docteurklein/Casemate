@@ -48,6 +48,13 @@ abstract class BaseBlockController implements BaseBlockControllerInterface
         $this->blockRenderer = $blockRenderer;
     }
 
+    public function esiRender(Request $request)
+    {
+        $block = $this->provider->get($request->query->get('blockId'));
+
+        return $this->render($block);
+    }
+
     /**
      * Set the current session
      * @see Knp\Bundle\BlockBundle\Controller\BaseBlockControllerInterface::setSession()

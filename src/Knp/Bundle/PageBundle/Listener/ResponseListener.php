@@ -20,6 +20,7 @@ use Symfony\Component\HttpKernel\HttpKernel;
  */
 class ResponseListener
 {
+    const IS_SUB_REQUEST = '_is_sub';
     private $assetHelper;
     private $router;
 
@@ -32,7 +33,8 @@ class ResponseListener
 
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()
+        or $event->getRequest()->query->has(self::IS_SUB_REQUEST)) {
             return;
         }
 
