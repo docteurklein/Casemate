@@ -29,7 +29,7 @@ class Renderer
         $params = array_merge(array(
             'query'      => array('blockId' => $block->getId()),
             'attributes' => array('block' => $block),
-            'standalone' => false,
+            'standalone' => true,
         ), $params);
 
         return $this->kernel->render($this->getFrontendControllerId($block).':render', $params);

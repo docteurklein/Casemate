@@ -22,6 +22,16 @@ class DoctrineProviderBlock extends BaseBlock
      */
     private $className;
 
+    /**
+     * @ODM\Field(type="string")
+     */
+    private $listTemplate;
+
+    /**
+     * @ODM\Field(type="string")
+     */
+    private $viewTemplate;
+
     public function getClassName()
     {
         return $this->className;
@@ -30,5 +40,45 @@ class DoctrineProviderBlock extends BaseBlock
     public function setClassName($className)
     {
         $this->className = $className;
+    }
+
+    /**
+     * Get listTemplate.
+     *
+     * @return listTemplate.
+     */
+    public function getListTemplate()
+    {
+        return $this->listTemplate;
+    }
+
+    /**
+     * Set listTemplate.
+     *
+     * @param listTemplate the value to set.
+     */
+    public function setListTemplate($listTemplate)
+    {
+        $this->listTemplate = $listTemplate;
+    }
+
+    /**
+     * Get viewTemplate.
+     *
+     * @return viewTemplate.
+     */
+    public function getViewTemplate()
+    {
+        return $this->viewTemplate;
+    }
+
+    /**
+     * Set viewTemplate.
+     *
+     * @param viewTemplate the value to set.
+     */
+    public function setViewTemplate($viewTemplate)
+    {
+        $this->viewTemplate = $viewTemplate;
     }
 }
