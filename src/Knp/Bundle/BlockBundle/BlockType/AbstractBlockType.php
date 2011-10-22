@@ -46,8 +46,12 @@ abstract class AbstractBlockType
         // remove Block and Type from short class name
         $className = str_replace(array('Type', 'Block'), '', $className);
 
-        // return the underscored name
-        return self::underscore($className);
+        return $className;
+    }
+
+    public function getUnderscoredInternalName()
+    {
+        return self::underscore($this->getInternalName());
     }
 
     /**
@@ -57,7 +61,7 @@ abstract class AbstractBlockType
      */
     public function getEditionTemplateName()
     {
-        return sprintf('Knp%sBlockBundle:BlockType/Form:%s.html.twig', ucfirst($this->getInternalName()), $this->getInternalName());
+        return sprintf('Knp%sBlockBundle:BlockType/Form:%s.html.twig', ucfirst($this->getInternalName()), $this->getUnderscoredInternalName());
     }
 
     /**
@@ -67,7 +71,7 @@ abstract class AbstractBlockType
      */
     public function getShowTemplateName()
     {
-        return sprintf('Knp%sBlockBundle:BlockType:%s.html.twig', ucfirst($this->getInternalName()), $this->getInternalName());
+        return sprintf('Knp%sBlockBundle:BlockType:%s.html.twig', ucfirst($this->getInternalName()), $this->getUnderscoredInternalName());
     }
 
     /**
@@ -77,7 +81,7 @@ abstract class AbstractBlockType
      */
     public function getEditionFormId()
     {
-        return sprintf('knp.cmf.form.%s_block', $this->getInternalName());
+        return sprintf('knp.cmf.form.%s_block', $this->getUnderscoredInternalName());
     }
 
     /**
@@ -87,7 +91,7 @@ abstract class AbstractBlockType
      */
     public function getFrontendControllerId()
     {
-        return sprintf('knp.cmf.controller.%s_block', $this->getInternalName());
+        return sprintf('knp.cmf.controller.%s_block', $this->getUnderscoredInternalName());
     }
 
     /**

@@ -16,3 +16,8 @@ knp_page:
     type:     annotation
     prefix:   /page
 
+knp_doctrine_provider:
+    resource: @KnpDoctrineProviderBlockBundle/Controller/
+    type:     annotation
+    prefix:   /item
+

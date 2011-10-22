@@ -25,6 +25,7 @@ class AppKernel extends Kernel
 
             // additional blocks
             new Knp\Bundle\StaticBlockBundle\KnpStaticBlockBundle(),
+            new Knp\Bundle\DoctrineProviderBlockBundle\KnpDoctrineProviderBlockBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<h2>{{ 'Blocks list'|trans([], 'knp_cmf_block') }}</h2>
+
+<ul>
+{% for item in items %}
+    <li>
+        <a href="{{ path('knp_doctrine_provider_block_view', { 'id': block.id, 'itemId': item.id } ) }}">{{ item.name }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock body %}

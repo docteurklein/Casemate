@@ -65,12 +65,20 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, F
 
     private function getBlocks()
     {
-        return $this->dm->getRepository('Knp\Bundle\BlockBundle\Block\BaseBlock')
+        return $this->dm->getRepository('Knp\Bundle\StaticBlockBundle\Document\StaticBlock')
             ->createQueryBuilder()
             ->limit(10)
             ->getQuery()
             ->execute()
-            ->toArray();
+            ->toArray()
+        +
+        $this->dm->getRepository('Knp\Bundle\DoctrineProviderBlockBundle\Document\DoctrineProviderBlock')
+            ->createQueryBuilder()
+            ->limit(10)
+            ->getQuery()
+            ->execute()
+            ->toArray()
+        ;
     }
 }
 

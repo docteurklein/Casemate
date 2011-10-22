@@ -1,0 +1,12 @@
+
+{{ 'Edition of the  Static Block "%block.name%"'|trans({'%block.name%': block.name}, 'knp_cmf_block') }}
+
+<form action="{{ path('knp_cmf_block_edit', {'id': block.id} ) }}" {{ form_enctype(blockForm) }} method="POST" class="knp_cmf_block_edit">
+    <fieldset>
+	    <legend>Configuration</legend>
+    {{ form_widget(blockForm) }}
+    </fieldset>
+    <div>
+        <input type="submit" value="{{ 'Save block'|trans([], 'knp_cmf_block') }}" />
+    </div>
+</form>

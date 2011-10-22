@@ -23,6 +23,8 @@ interface BlockTypeInterface
      */
     function getInternalName();
 
+    function getUnderscoredInternalName();
+
     /**
      *
      * Returns the content of the twig template used to display edition form
