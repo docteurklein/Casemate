@@ -40,10 +40,16 @@ class BundleGenerator extends Generator
         $this->renderFile($this->skeletonDir, 'Extension.php', $dir.'/DependencyInjection/'.$basename.'Extension.php', $parameters);
         $this->renderFile($this->skeletonDir, 'Configuration.php', $dir.'/DependencyInjection/Configuration.php', $parameters);
         $this->renderFile($this->skeletonDir, 'DefaultController.php', $dir.'/Controller/'.$basename.'Controller.php', $parameters);
-        $this->renderFile($this->skeletonDir, 'index.html.twig', $dir.'/Resources/views/'.$basename.'/index.html.twig', $parameters);
 
-        $this->renderFile($this->skeletonDir, 'controllers.xml', $dir.'/Resources/config/services.xml', $parameters);
-        $this->renderFile($this->skeletonDir, 'forms.xml', $dir.'/Resources/config/services.xml', $parameters);
-        $this->renderFile($this->skeletonDir, 'block_types.xml', $dir.'/Resources/config/services.xml', $parameters);
+        $this->renderFile($this->skeletonDir, 'BlockType.php', $dir.'/'.$basename.'Type.php', $parameters);
+        $this->renderFile($this->skeletonDir, 'BlockDocument.php', $dir.'/Document/'.$basename.'.php', $parameters);
+
+
+        $this->renderFile($this->skeletonDir, 'edition.html.twig', $dir.'/Resources/views/BlockType/Form/'.$parameters['extension_alias'].'.html.twig', $parameters);
+        $this->renderFile($this->skeletonDir, 'view.html.twig', $dir.'/Resources/views/BlockType/'.$parameters['extension_alias'].'.html.twig', $parameters);
+
+        $this->renderFile($this->skeletonDir, 'controllers.xml', $dir.'/Resources/config/controllers.xml', $parameters);
+        $this->renderFile($this->skeletonDir, 'forms.xml', $dir.'/Resources/config/forms.xml', $parameters);
+        $this->renderFile($this->skeletonDir, 'block_types.xml', $dir.'/Resources/config/block_types.xml', $parameters);
     }
 }

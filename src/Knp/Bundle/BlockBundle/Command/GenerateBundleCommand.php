@@ -64,8 +64,6 @@ EOT
         $bundle = Validators::validateBundleName($bundle);
         $dir = Validators::validateTargetDir($input->getOption('dir'), $bundle, $namespace);
 
-        $dialog->writeSection($output, 'Bundle generation');
-
         if (!$this->getContainer()->get('filesystem')->isAbsolutePath($dir)) {
             $dir = getcwd().'/'.$dir;
         }
@@ -79,7 +77,7 @@ EOT
     protected function getGenerator()
     {
         if (null === $this->generator) {
-            $this->generator = new BundleGenerator($this->getContainer()->get('filesystem'), __DIR__.'/../Resources/skeleton/bundle');
+            $this->generator = new BundleGenerator($this->getContainer()->get('filesystem'), __DIR__.'/../Resources/skeleton');
         }
 
         return $this->generator;

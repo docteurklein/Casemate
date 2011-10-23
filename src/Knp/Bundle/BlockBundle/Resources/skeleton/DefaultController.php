@@ -18,13 +18,22 @@ class {{ bundle_basename }}Controller extends Controller
      */
     {%- endif %}
 
-    public function indexAction($name)
+    /**
+     * Render a block
+     * @see Knp\Bundle\BlockBundle\Controller\BlockControllerInterface::renderAction
+     *
+     * gets the rendering of a StaticBlock
+     * @return Response
+     */
+    public function render(BlockInterface $block)
     {
-        {% if 'annotation' != format -%}
-        return $this->render('{{ bundle }}:Default:index.html.twig', array('name' => $name));
-        {%- else -%}
-        return array('name' => $name);
-        {%- endif %}
+        $blockType = $this->getBlockProvider()->getType($block->getBlockTypeId());
 
+        $response = $this->getResponseObject($blockType);
+
+        //TODO populate the response content
+        //$respnse->setContent('block specific content');
+
+        return $response;
     }
 }
