@@ -15,3 +15,5 @@ Contents:
     blocks/base_block
     blocks/static_block
     blocks/doctrine_provider_block
+
+    blocks/create_block

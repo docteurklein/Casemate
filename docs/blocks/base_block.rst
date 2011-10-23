@@ -10,4 +10,3 @@ The base Block
 The base block is an abstract block that is used to inherit from.
 It provides all needed information to edit and display each block based on it.
 
-

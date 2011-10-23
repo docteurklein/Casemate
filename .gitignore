@@ -1,3 +1,4 @@
+docs/_build
 app/cache/
 app/logs/
 web/bundles/
