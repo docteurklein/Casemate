@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+    <service id="form.{{ extension_alias }}" factory-method="create" factory-service="form.factory" class="%form.factory.class%">
+    <argument type="service" id="form.type.{{ extension_alias }}" />
+            <argument />
+            <argument type="collection">
+            <argument key="data_class">{{ namespace }}\{{ bundle_basename }}Bundle\Document\{{ bundle_basename }}</argument>
+                <argument key="validation_groups">knp.cmf.validator.block</argument>
+            </argument>
+            <tag name="knp.cmf.block_type.form" />
+        </service>
+
+        <service id="form.type.{{ extension_alias }}" class="{{ bundle_basename }}Bundle\Form\{{ bundle_basename }}FormType">
+            <tag name="form.type" />
+        </service>
+    </services>
+</container>
