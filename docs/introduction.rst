@@ -25,3 +25,8 @@ Each block type offers a way to enter content and display this content, whereeve
 
 Currently it provides :doc:`blocks`.
 
+
+Where is the Casemate ?
+=======================
+
+You can find the sources on [github](http://github.com/docteurklein/Casemate).
