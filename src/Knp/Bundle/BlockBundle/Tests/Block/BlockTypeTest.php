@@ -9,6 +9,7 @@ class BlockTypeTest extends \PHPUnit_Framework_TestCase
         $blockType = $this->getMockBuilder('Knp\Bundle\BlockBundle\BlockType\AbstractBlockType')
             ->setMockClassName('MySuperBlockType')->getMockForAbstractClass();
 
-        $this->assertEquals('my_super', $blockType->getInternalName());
+        $this->assertEquals('MySuper', $blockType->getInternalName());
+        $this->assertEquals('my_super', $blockType->getUnderscoredInternalName());
     }
 }
