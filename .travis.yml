@@ -4,6 +4,9 @@ php:
   - 5.3
   - 5.4
 
-before_script: git submodule update --init
+before_script: 
+    - git submodule update --init
+    - sudo apt-get install -y php-pear
+    - sudo pecl install mongo
 
 script: phpunit -c app/phpunit.xml.dist
