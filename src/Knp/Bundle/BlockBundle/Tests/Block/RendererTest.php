@@ -15,7 +15,7 @@ class RendererTest extends \PHPUnit_Framework_TestCase
         return $renderer;
     }
 
-    public function testFrontendControlerId()
+    public function testFrontendControllerId()
     {
         $renderer = $this->getRenderer();
 
