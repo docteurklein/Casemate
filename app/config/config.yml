@@ -50,9 +50,3 @@ doctrine_mongodb:
                     prefix: "Knp\\Bundle\\BlockBundle\\Block\\"
             auto_mapping: true
 
-# Doctrine Extension
-#stof_doctrine_extensions:
-#    mongodb:
-#        default:
-#            sluggable: true
-
