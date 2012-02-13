@@ -7,7 +7,7 @@ framework:
         enabled: true
     secret:        098f6bcd4621d373cade4e832627b4f6
     router:        { resource: "%kernel.root_dir%/config/routing.yml" }
-    validation:    { enabled: true, enable_annotations: true, cache: apc }
+    validation:    { enabled: true, enable_annotations: true, cache: null }
     templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
     session:
  #       default_locale: %locale%
@@ -41,7 +41,7 @@ doctrine_mongodb:
                 connect: true
     document_managers:
         default:
-            metadata_cache_driver: apc
+            metadata_cache_driver: array
             mappings:
                 KnpBlockBundleBaseBlock: 
                     is_bundle: false
