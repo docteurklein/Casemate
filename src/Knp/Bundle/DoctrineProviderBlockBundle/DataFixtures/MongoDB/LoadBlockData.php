@@ -3,6 +3,7 @@
 namespace Knp\Bundle\DoctrineProviderBlockBundle\DataFixtures\MongoDB;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -17,7 +18,7 @@ class LoadBlockData extends AbstractFixture implements OrderedFixtureInterface, 
         return 20;
     }
 
-    public function load($manager)
+    public function load(ObjectManager $manager)
     {
         $this->buildBlocks($manager);
     }

@@ -2,7 +2,7 @@
 
 namespace Knp\Bundle\PageBundle\DataFixtures\MongoDB;
 
-use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -18,7 +18,7 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, F
         return 50;
     }
 
-    public function load($dm)
+    public function load(ObjectManager $dm)
     {
         $this->dm = $dm;
 
