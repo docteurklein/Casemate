@@ -137,7 +137,6 @@ abstract class BaseBlockController implements BaseBlockControllerInterface
         return $this->provider;
     }
 
-
     public function renderAction()
     {
         $blockId = $this->request->query->get('blockId');
