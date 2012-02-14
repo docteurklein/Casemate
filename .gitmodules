@@ -16,9 +16,6 @@
 [submodule "vendor/twig-extensions"]
 	path = vendor/twig-extensions
 	url = git://github.com/fabpot/Twig-extensions.git
-[submodule "vendor/bundles/Symfony/Bundle/DoctrineMongoDBBundle"]
-	path = vendor/bundles/Symfony/Bundle/DoctrineMongoDBBundle
-	url = git://github.com/symfony/DoctrineMongoDBBundle.git
 [submodule "vendor/bundles/Sensio/Bundle/FrameworkExtraBundle"]
 	path = vendor/bundles/Sensio/Bundle/FrameworkExtraBundle
 	url = git://github.com/sensio/SensioFrameworkExtraBundle.git
@@ -49,12 +46,24 @@
 [submodule "vendor/Buzz"]
 	path = vendor/Buzz
 	url = git://github.com/kriswallsmith/Buzz.git
-[submodule "vendor/bundles/Symfony/Bundle/DoctrineFixturesBundle"]
-	path = vendor/bundles/Symfony/Bundle/DoctrineFixturesBundle
-	url = git://github.com/symfony/DoctrineFixturesBundle.git
 [submodule "vendor/doctrine-data-fixtures"]
 	path = vendor/doctrine-data-fixtures
 	url = git://github.com/doctrine/data-fixtures.git
 [submodule "vendor/bundles/Symfony/Bundle/AsseticBundle"]
 	path = vendor/bundles/Symfony/Bundle/AsseticBundle
 	url = git://github.com/symfony/AsseticBundle.git
+[submodule "vendor/bundles/Doctrine/Bundle/DoctrineFixturesBundle"]
+	path = vendor/bundles/Doctrine/Bundle/DoctrineFixturesBundle
+	url = git://github.com/doctrine/DoctrineFixturesBundle.git
+[submodule "vendor/bundles/Doctrine/Bundle/DoctrineMongoDBBundle"]
+	path = vendor/bundles/Doctrine/Bundle/DoctrineMongoDBBundle
+	url = https://github.com/doctrine/DoctrineMongoDBBundle.git
+[submodule "vendor/bundles/Doctrine/Bundle/MongoDBBundle"]
+	path = vendor/bundles/Doctrine/Bundle/MongoDBBundle
+	url = https://github.com/doctrine/DoctrineMongoDBBundle.git
+[submodule "vendor/bundles/Doctrine/Bundle/FixturesBundle"]
+	path = vendor/bundles/Doctrine/Bundle/FixturesBundle
+	url = git://github.com/doctrine/DoctrineFixturesBundle.git
+[submodule "vendor/bundles/Doctrine/Bundle/DoctrineBundle"]
+	path = vendor/bundles/Doctrine/Bundle/DoctrineBundle
+	url = git://github.com/doctrine/DoctrineBundle.git

@@ -13,11 +13,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\DoctrineMongoDBBundle\DoctrineMongoDBBundle(),
-            //new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            //new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             //Engine
             new Knp\Bundle\BlockBundle\KnpBlockBundle(),
